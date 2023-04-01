@@ -1,13 +1,15 @@
 /* Magic Mirror
- * Module: MMM-DarkSkyRadar
+ * Module: MMM-OWMRadar
  */
 
-Module.register("MMM-DarkSkyRadar",{
+Module.register("MMM-OWMRadar",{
 
 	defaults: {
 		height: "600px",
 		width: "350px",
 		zoomLevel: 6,
+		xTiles: 3,
+		yTiles: 3,
 		updateInterval: 15 * 60 * 1000,
 		showMarker: false,
 	},
@@ -17,12 +19,12 @@ Module.register("MMM-DarkSkyRadar",{
 	},
 
 	getStyles: function() {
-		return ["MMM-DarkSkyRadar.css"];
+		return ["MMM-OWMRadar.css"];
 	},
 	
 	getDom: function() {
 		let iframe = document.createElement("iframe");
-		iframe.id = "mmdarkskyradarframe";
+		iframe.id = "mmowmradarframe";
 		iframe.classList.add("iframe");
 		iframe.style = "border:0;";
 		iframe.width = this.config.width;
@@ -32,9 +34,9 @@ Module.register("MMM-DarkSkyRadar",{
 		let lat = this.config.lat;
 		let lon = this.config.lon;
 		let zoom = this.config.zoomLevel;
-		let marker = this.config.showMarker ? `&marker=${lat},${lon}` : "";
+		let appid = this.config.appid;
 
-		iframe.src = `https://maps.darksky.net/@radar,${lat},${lon},${zoom}?embed=true&timeControl=false&fieldControl=false${marker}&defaultField=radar`;
+		iframe.src = `https://tile.openweathermap.org/map/precipitation_new/${zoom}/${lon}/${lat}.png?appid=${appid}`;
 
 		return iframe;
 	},

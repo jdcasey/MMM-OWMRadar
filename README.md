@@ -1,25 +1,22 @@
 # MMM-DarkSkyRadar
-MagicMirror module to get a radar map from DarkSky
+MagicMirror module to get a radar map from OpenWeatherMap
 
-https://maps.darksky.net/
-
-## Preview
-![screenshot1](screenshot1.JPG)
+https://openweathermap.org/api/weathermaps 
 
 ## Using the module
 Go to your MagicMirror modules directory by entering `cd MagicMirror/modules`
 
-run `git clone https://github.com/vincep5/MMM-DarkSkyRadar`
+run `git clone https://github.com/jdcasey/MMM-OWMRadar`
 
-run `cd MMM-DarkSkyRadar` to get into the newly created folder
+run `cd MMM-OWMRadar` to get into the newly created folder
 
 run `npm install` to install the dependencies
 
-Add `MMM-DarkSkyRadar` module to the `modules` array in the `config/config.js` file:
+Add `MMM-OWMRadar` module to the `modules` array in the `config/config.js` file:
 ````javascript
 modules: [
   {
-    module: "MMM-DarkSkyRadar",
+    module: "MMM-OWMRadar",
     position: "top_right",
     header: "Radar",
     config: {
@@ -34,7 +31,4 @@ modules: [
   },
 ]
 ````
-If the radar is not loading try having the zoom level at an even number instead of an odd number.
 
-## Idea
-A similar module to display a radar map with more options is : https://github.com/jojoduquartier/MMM-RAIN-RADAR
